@@ -32,7 +32,7 @@ try:
 except:
     HAS_NUMPY = False
 
-from .ImarisWriterCtypes import *
+from ImarisWriterCtypes import *
 
 
 def adjust_dll_loading_configuration():

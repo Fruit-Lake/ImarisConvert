@@ -1,15 +1,31 @@
-# _*_ coding: utf-8 _*_
-# @Time    : 2025/3/20 15:50
-# @Author  : Guanhao Sun
-# @File    : imaris_convert.py
-# @IDE     : PyCharm
+# /***************************************************************************
+# *   Copyright (c) 2020-present Bitplane AG Zuerich                        *
+# *                                                                         *
+# *   Licensed under the Apache License, Version 2.0 (the "License");       *
+# *   you may not use this file except in compliance with the License.      *
+# *   You may obtain a copy of the License at                               *
+# *                                                                         *
+# *       http://www.apache.org/licenses/LICENSE-2.0                        *
+# *                                                                         *
+# *   Unless required by applicable law or agreed to in writing, software   *
+# *   distributed under the License is distributed on an "AS IS" BASIS,     *
+# *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or imp   *
+# *   See the License for the specific language governing permissions and   *
+# *   limitations under the License.                                        *
+# ***************************************************************************/
+
+"""
+Example Program that creates an ims file from numpy array using PyImarisWriter python library
+"""
+
 import PyImarisWriter as PW
 import numpy as np
 
 from datetime import datetime
 
 
-class Configuration:
+class TestConfiguration:
+
     def __init__(self, id, title, np_type, imaris_type, color_table):
         self.mId = id
         self.mTitle = title
@@ -18,10 +34,34 @@ class Configuration:
         self.mColor_table = color_table
 
 
-def set_configuration(id, title, np_type, imaris_type):
+def get_test_configurations():
+    configurations = []
 
-    Configuration(0, 'uint8 image from uint8 numpy array', np.uint8, 'uint8',
-                          [PW.Color(0.086, 0.608, 0.384, 1), PW.Color(1, 1, 1, 1), PW.Color(1, 0.533, 0.243, 1)])
+    configurations.append(
+        TestConfiguration(len(configurations), 'uint8 image from uint8 numpy array', np.uint8, 'uint8',
+                          [PW.Color(0.086, 0.608, 0.384, 1), PW.Color(1, 1, 1, 1), PW.Color(1, 0.533, 0.243, 1)]))
+
+    # configurations.append(
+    #     TestConfiguration(len(configurations), 'uint16 image from uint16 numpy array', np.uint16, 'uint16',
+    #                       [PW.Color(0, 0.169, 0.498, 1), PW.Color(0.988, 0.820, 0.086, 1), PW.Color(1, 0, 0, 1)]))
+    #
+    # configurations.append(
+    #     TestConfiguration(len(configurations), 'float32 image from float32 numpy array', np.float32, 'float32',
+    #                       [PW.Color(0, 0, 0, 1), PW.Color(0.992, 0.855, 0.141, 1), PW.Color(0.937, 0.200, 0.251, 1)]))
+    #
+    # configurations.append(
+    #     TestConfiguration(len(configurations), 'uint16 image from uint8 numpy array', np.uint8, 'uint16',
+    #                       [PW.Color(0, 0, 1, 1), PW.Color(1, 1, 1, 1), PW.Color(1, 0, 0, 1)]))
+    #
+    # configurations.append(
+    #     TestConfiguration(len(configurations), 'float32 image from uint8 numpy array', np.uint8, 'float32',
+    #                       [PW.Color(0, 1, 0, 1), PW.Color(1, 1, 1, 1), PW.Color(1, 0, 0, 1)]))
+    #
+    # configurations.append(
+    #     TestConfiguration(len(configurations), 'float32 image from uint16 numpy array', np.uint16, 'float32',
+    #                       [PW.Color(0, 1, 1, 1), PW.Color(1, 0, 1, 1), PW.Color(1, 1, 0, 1)]))
+
+    return configurations
 
 
 class MyCallbackClass(PW.CallbackClass):
