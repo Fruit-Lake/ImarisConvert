@@ -115,7 +115,7 @@ def main(tiff_path, out_path: str = None):
     if not os.path.exists(out_path):
         os.makedirs(out_path)
 
-    out_path = os.path.join(out_path, name, '.ims')
+    out_path = os.path.join(out_path, name + '.ims')
 
     configurations = set_configuration(id=0,
                                        title='test',
