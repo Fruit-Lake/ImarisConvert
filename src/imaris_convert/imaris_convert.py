@@ -98,7 +98,7 @@ def write_data_to_ims(data: np.ndarray, config: Configuration):
     print('Wrote to {}'.format(config.out_path))
 
 
-def main(tiff_path, out_path: str = None):
+def tiff_to_imaris(tiff_path, out_path: str = None):
     tif = tf.TiffFile(tiff_path)
     shape = tif.series[0].shape
     np_data = np.zeros(shape, dtype=np.uint16)
@@ -126,12 +126,28 @@ def main(tiff_path, out_path: str = None):
     write_data_to_ims(data=np_data, config=configurations)
 
 
+def numpy_to_imaris(np_data: np.ndarray, out_path: str):
+    shape = np_data.shape
+
+    if out_path.endswith('.ims') and os.path.exists(os.path.dirname(out_path)):
+
+        configurations = set_configuration(id=0,
+                                           title='test',
+                                           np_type=np_data.dtype,
+                                           imaris_type=str(np_data.dtype),
+                                           out_path=out_path)
+
+        write_data_to_ims(data=np_data, config=configurations)
+    else:
+        exit(0x001)
+
+
 def main_cli():
     parser = argparse.ArgumentParser()
     parser.add_argument('file', type=str, help='path to tiff file')
     parser.add_argument('--out', '-o', type=str, help='', default=None)
     args = parser.parse_args()
-    main(tiff_path=args.file, out_path=args.out)
+    tiff_to_imaris(tiff_path=args.file, out_path=args.out)
 
 
 if __name__ == "__main__":

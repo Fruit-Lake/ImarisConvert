@@ -3,5 +3,7 @@
 # @Author  : Guanhao Sun
 # @File    : __init__.py.py
 # @IDE     : PyCharm
+from .imaris_convert import tiff_to_imaris, numpy_to_imaris
 
 __version__ = '0.1.0'
+__all__ = ['tiff_to_imaris', 'numpy_to_imaris']

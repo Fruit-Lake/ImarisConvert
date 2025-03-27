@@ -23,10 +23,8 @@ imaris-convert input.tiff -o /path/to/output/directory
 ### Python API 使用
 
 ```python
-from imaris_convert import imaris_convert
 
 # 转换图像文件
-imaris_convert.convert_to_imaris(input_file, output_file)
 ```
 
 ## 依赖项
