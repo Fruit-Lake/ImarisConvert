@@ -5,8 +5,8 @@
 # @IDE     : PyCharm
 import argparse
 import os
-
-import PyImarisWriter as PW
+import sys
+from . import PyImarisWriter as PW
 import numpy as np
 import tifffile as tf
 from datetime import datetime
