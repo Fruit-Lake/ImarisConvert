@@ -28,8 +28,6 @@ setup(
     author="Guanhao Sun",
     author_email="sgh4132@outlook.com",
     description="A tool for converting images to Imaris format",
-    long_description=open("README.md").read() if os.path.exists("README.md") else "",
-    long_description_content_type="text/markdown",
     python_requires=">=3.6",
     license="MIT",
     classifiers=[
