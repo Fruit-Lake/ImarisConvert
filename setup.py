@@ -34,7 +34,7 @@ setup(
     long_description_content_type="text/markdown",
     python_requires=">=3.6",
     classifiers=[
-        'Development Status :: 2 - Alpha',
+        'Development Status :: 3 - Alpha',
         'Intended Audience :: Science/Research',
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python :: 3',
