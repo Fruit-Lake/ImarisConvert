@@ -1,6 +1,9 @@
 from setuptools import setup, find_packages
 import os
 
+with open("README.md", "r", encoding="utf-8") as fh:
+    long_description = fh.read()
+
 setup(
     name="imaris-convert",
     version="1.0.0",
@@ -28,6 +31,8 @@ setup(
     author="Guanhao Sun",
     author_email="sgh4132@outlook.com",
     description="A tool for converting images to Imaris format",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
     python_requires=">=3.6",
     classifiers=[
         'Development Status :: 3 - Alpha',
