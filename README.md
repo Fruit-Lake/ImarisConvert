@@ -23,8 +23,19 @@ imaris-convert input.tiff -o /path/to/output/directory
 ### Python API 使用
 
 ```python
+# 转换图像文件(.tiff)
+from imaris_convert import tiff_to_imaris
 
-# 转换图像文件
+tif_path = r'your_tiff_path'
+tiff_to_imaris(tiff_path=tif_path)
+# tiff_to_imaris(tiff_path=tif_path,out_path=out_path)
+
+# 转换 np.ndarray 到 ims
+from imaris_convert import numpy_to_imaris
+import numpy as np
+
+your_np_data = np.ones((100,100,100),dtype=np.uint16)
+numpy_to_imaris(np_data=your_np_data,out_path='your_save_path')
 ```
 
 ## 依赖项
